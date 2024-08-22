@@ -18,6 +18,10 @@ SkySync is a React-based weather application that provides users with real-time 
 - **Leaflet**: For creating an interactive map.
 - **Visual Crossing Weather API**: Provides comprehensive weather data and forecasts.
 
+## Demo
+
+Experience SkySync live at [https://skysyncapp.netlify.app/](https://skysyncapp.netlify.app/).
+
 ## Setup and Installation
 
 1. **Clone the Repository**
