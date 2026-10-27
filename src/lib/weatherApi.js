@@ -1,10 +1,10 @@
-const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
+const API_KEY = import.meta.env.WEATHER_API_KEY;
 const BASE_URL =
   "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline";
 
 const ERROR_MESSAGES = {
   400: "Couldn't find that location. Check the spelling and try again.",
-  401: "Invalid weather API key. Check VITE_WEATHER_API_KEY in your .env file.",
+  401: "Invalid weather API key. Check WEATHER_API_KEY in your .env file.",
   429: "Daily weather API limit reached. Try again later.",
 };
 
@@ -57,7 +57,7 @@ export async function fetchWeather(
   { period = "", include = "days,hours,current,alerts", signal, force = false } = {}
 ) {
   if (!API_KEY) {
-    throw new Error("Missing VITE_WEATHER_API_KEY. Add it to your .env file.");
+    throw new Error("Missing WEATHER_API_KEY. Add it to your .env file.");
   }
 
   const cacheKey = `${location.toLowerCase()}|${period}|${include}`;

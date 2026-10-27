@@ -64,7 +64,7 @@ Experience SkySync live at [https://skysyncapp.netlify.app/](https://skysyncapp.
    ```bash
    cp .env.example .env
    # then edit .env:
-   VITE_WEATHER_API_KEY=your_api_key_here
+   WEATHER_API_KEY=your_api_key_here
    ```
 
    `.env` is git-ignored — never commit your key.
