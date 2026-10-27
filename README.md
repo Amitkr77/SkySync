@@ -6,17 +6,30 @@ SkySync is a React-based weather application that provides users with real-time 
 
 ## Features
 
-- **Current Weather Information**: View up-to-date weather conditions for any city.
-- **Rain Probability Chart**: Visualize the likelihood of rain throughout the day with a detailed chart.
-- **Interactive Map**: Explore global weather conditions with an interactive map; click on locations to get detailed weather data.
-- **Top Cities Weather**: Check the weather for a selection of major cities worldwide.
+- **Current conditions**: Temperature, feels-like, high/low and a live local clock in the city's own timezone.
+- **Smart tips**: Plain-language advice for the next 12 hours (umbrella, sunscreen, heat, wind, air quality).
+- **Forecasts**: Next-24-hours strip, an hourly trends chart (temperature, rain, wind), and a 7-day forecast whose days expand for details.
+- **Today's details**: Air quality and UV scales, humidity, a wind compass, visibility, pressure, a sunrise/sunset arc and the moon phase.
+- **Search**: City autocomplete, recent searches, "use my location", and a `/` keyboard shortcut.
+- **Saved cities**: Star a city to keep its current weather one tap away, alongside a list of popular cities.
+- **Compare**: Put two cities side by side.
+- **Interactive map**:
+  - Drop up to 5 pins to check any spot; remove one from its popup or by right-clicking it, or clear them all (with Undo).
+  - Street, satellite and terrain base maps; an animated rain-radar overlay with a timeline; saved cities on the map.
+  - Fullscreen, recenter on the searched city, and pin your own location.
+- **Weather alerts**: Active alerts appear as a banner.
+- **Preferences**: °C/°F, wind in km/h, mph, m/s or knots, and Auto/Light/Dark appearance, remembered between visits.
+- **Shareable links**: The URL always reflects the city (`?city=London`); share or copy it from the main card.
+- **Offline & installable**: Installable as an app (PWA). Recent forecasts are cached and shown when you're offline, and data refreshes automatically every 15 minutes.
 
 ## Technologies Used
 
-- **React**: A JavaScript library for building user interfaces.
-- **Chart.js**: For rendering rain probability charts.
-- **Leaflet**: For creating an interactive map.
-- **Visual Crossing Weather API**: Provides comprehensive weather data and forecasts.
+- **React** + **Vite**, styled with **Tailwind CSS** and **lucide-react** icons.
+- **Chart.js**: For the chance-of-rain chart.
+- **Leaflet** with **OpenStreetMap** tiles and **RainViewer** radar.
+- **Visual Crossing Weather API**: Forecasts, current conditions and alerts (needs an API key).
+- **Open-Meteo**: City search and air quality (no key needed).
+- **Nominatim (OpenStreetMap)**: Place names for "use my location" and map clicks (no key needed).
 
 ## Demo
 
@@ -46,19 +59,23 @@ Experience SkySync live at [https://skysyncapp.netlify.app/](https://skysyncapp.
 
 4. **Set Up API Keys**
 
-   The application uses the Visual Crossing Weather API. Obtain an API key from [Visual Crossing](https://www.visualcrossing.com/weather-api) and replace the placeholder API key in the code:
+   The application uses the Visual Crossing Weather API. Obtain an API key from [Visual Crossing](https://www.visualcrossing.com/weather-api) then copy `.env.example` to `.env` and add your key:
 
-   ```javascript
-   const apiKey = 'YOUR_API_KEY_HERE';
+   ```bash
+   cp .env.example .env
+   # then edit .env:
+   VITE_WEATHER_API_KEY=your_api_key_here
    ```
+
+   `.env` is git-ignored — never commit your key.
 
 5. **Start the Development Server**
 
    ```bash
-   npm start
+   npm run dev
    ```
 
-   The application will be available at [http://localhost:3000](http://localhost:3000).
+   The application will be available at [http://localhost:5173](http://localhost:5173).
 
 ## Usage
 
